@@ -6,8 +6,8 @@ pipeline {
         stage('Login and Push') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'jenkins') {
-                        docker.built('dwthomasjr415/flaskapp').push('lastest')
+                    withDockerRegistry(credentialsId: 'Docker') {
+                        docker.build('dwthomasjr415/flaskapp').push('lastest')
                     }       
                 }
             }
