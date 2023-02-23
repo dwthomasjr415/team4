@@ -7,7 +7,7 @@ pipeline {
                 echo 'Hello World'
             }
             steps {
-                sh 'socker built -t dwthomasjr415/flaskapp .'
+                sh 'docker build -t dwthomasjr415/flaskapp .'
             }
         }
     }
