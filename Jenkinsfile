@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'Docker') {
-                        docker.build('dwthomasjr415/flaskapp').push('lastest')
+                        docker.build('dwthomasjr415/flaskapp').push('latest')
                     }       
                 }
             }
