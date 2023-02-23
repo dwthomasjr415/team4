@@ -1,25 +1,16 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER = credentials('jenkins')
-    }
-
+   
     stages {
-        stage('Build') {
+        stage('Login and Push') {
             steps {
-                sh 'docker build -t dwthomasjr415/flaskapp .'
+                script {
+                    withDockerRegistry(credentialsId: 'jenkins') {
+                        docker.built('dwthomasjr415/flaskapp').push('lastest')
+                    }       
+                }
             }
-        }
-        stage('Login') {
-            steps {
-                echo '$jenkins | docker login -u dwthomasjr415 login -u dwthomasjr415 --password-stdin'
-            }
-        }
-        stage('Push') {
-            steps {
-                sh 'docker push dwthomasjr415/flaskapp'
-            }
-        }
+         }
     }
 }
