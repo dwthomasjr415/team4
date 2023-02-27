@@ -32,5 +32,17 @@ pipeline {
                 }
             }
         }
+        stage('Create Namespace'){
+            steps {
+                script {
+                    try {
+                        sh 'kubectl apply -f manafest.yaml'
+                    }  catch (Exception e) {
+                        echo 'Exception occured: ' + e.toString()
+                        echo 'Handled the Exception!'
+                    }
+                }
+            }
+        }
     }
 }
