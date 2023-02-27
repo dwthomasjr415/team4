@@ -12,14 +12,14 @@ pipeline {
                 }
             }
         }
-        // stage('AWS Commands'){
-        //     steps {
-        //         script {
-        //             withAWS(credentials: 'aws-jenkins', region: 'us-east-1'){
-        //                 sh 'aws sts get-caller-identity'
-        //             }
-        //         }
-        //     }
-        // }
+        stage('AWS Commands'){
+            steps {
+                script {
+                    withAWS(credentials: 'aws-jenkins', region: 'us-east-1'){
+                        sh 'aws sts get-caller-identity'
+                    }
+                }
+            }
+        }
     }
 }
