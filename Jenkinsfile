@@ -37,12 +37,13 @@ pipeline {
                 script {
                     withAWS(credentials: 'AWS_Credentials', region: 'us-east-1') {
                         try {
-                            sh 'kubectl apply -f manafest.yaml'
-                        }  catch (Exception e) {
+                            sh 'kubectl apply -f manifest.yaml'
+                        } catch (Exception e) {
                             echo 'Exception occured: ' + e.toString()
                             echo 'Handled the Exception!'
                         }
                     }
+                }
             }
         }
     }
