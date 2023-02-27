@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     // sign into AWS
-                    withAWS(credentials: 'aws-jenkins', region: 'us-east-1'){ 
+                    withAWS(credentials: 'AWS_Credentials', region: 'us-east-1'){ 
                         sh 'aws sts get-caller-identity'
                     }
                 }
