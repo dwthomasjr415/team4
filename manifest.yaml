@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: dwthomasjr/jenkins-dind
+        image: dwthomasjr415/flaskapp
         ports:
         - containerPort: 5000
         imagePullPolicy: Always
